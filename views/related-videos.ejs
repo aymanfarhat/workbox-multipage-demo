@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('./partials/head') %>
 </head>
+
 <body>
-    <%- include('./partials/header') %>
-    <main class="mdl-layout__content">
-      <div class="page-content" style="padding:10px;">
-        <ul class="demo-list-two mdl-list">
-          <% snippets.forEach(function(snippet) { %>
-          <li class="mdl-list__item mdl-list__item--two-line">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-avatar">person</i>
-              <span><%= snippet.title %></span>
-              <span class="mdl-list__item-sub-title"><%= snippet.description %></span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-              <span class="mdl-list__item-secondary-info">Actor</span>
-              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-            </span>
-          </li>
-          <% }) %>
-        </ul>
-      </div>
-    </main>
+  <%- include('./partials/header') %>
+  <main class="mdl-layout__content">
+    <div class="page-content" style="padding:10px;">
+      <ul class="demo-list-two mdl-list">
+        <% snippets.forEach(function(snippet) { %>
+        <li class="mdl-list__item mdl-list__item--two-line">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">person</i>
+            <span><%= snippet.title %></span>
+            <span class="mdl-list__item-sub-title"><%= snippet.description %></span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <span class="mdl-list__item-secondary-info">Actor</span>
+            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+          </span>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </main>
   </div>
+  <script crossorigin="anonymous" defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script defer src="/app.js"></script>
 </body>
 </html>

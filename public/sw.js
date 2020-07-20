@@ -41,7 +41,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   new RegExp(/\/related-videos\/.*/),
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
     cacheName: 'cache-related-videos',
     plugins: [
       new workbox.expiration.ExpirationPlugin({

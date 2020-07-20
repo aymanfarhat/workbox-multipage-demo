@@ -25,6 +25,7 @@ app.get('/about-precache', (request, response) => {
 
 app.get('/api/search-videos/:searchQuery', (request, response) => {
   const requestUrl = `${apiBase}&q=${request.params.searchQuery}&key=${apiKey}`;
+  console.log(requestUrl);
   requestClient(requestUrl, { json: true }, (err, res, data) => {
     const snippets = data.items.map((item) => {
       return {
@@ -38,7 +39,6 @@ app.get('/api/search-videos/:searchQuery', (request, response) => {
 });
 
 app.get('/related-videos/:videoId', (request, response) => {
-  console.log(`${apiBase}&relatedToVideoId=${request.params.videoId}&key=${apiKey}&maxResults=10`);
   requestClient(`${apiBase}&relatedToVideoId=${request.params.videoId}&key=${apiKey}&maxResults=10`, { json: true }, (err, res, data) => {
     const snippets = data.items.map((item) => {
       return item.snippet;
