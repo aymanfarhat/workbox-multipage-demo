@@ -1,7 +1,13 @@
 window.addEventListener('load', function() {
   window.searchForm = document.getElementById('js-search-form');
   window.searchResultsContainer = document.getElementById('js-search-results');
+  window.offlineBanner = document.getElementById('js-offline-banner');
+
   window.searchForm.addEventListener('submit', performSearch);
+  window.addEventListener('online',  updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+
+  updateOnlineStatus();
 });
 
 function performSearch(e) {
@@ -20,12 +26,23 @@ function performSearch(e) {
       renderSearchResults(data);
     })
     .catch((e) => {
-      console.error('An error occured!');
+      searchResultsContainer.innerHTML = `Error occured while fetching data, you might be offline!`;
+      e.preventDefault();
     });
 }
 
 function showSearchLoading() {
   searchResultsContainer.innerHTML = `<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>`;  
+}
+
+function updateOnlineStatus() {
+  console.log(navigator.onLine);
+
+  if(!navigator.onLine) {
+    window.offlineBanner.style.display = 'block';
+  } else {
+    window.offlineBanner.style.display = 'none';
+  }
 }
 
 function renderSearchResults(searchData) {

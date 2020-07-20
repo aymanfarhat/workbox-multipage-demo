@@ -7,7 +7,8 @@
     <%- include('./partials/header') %>
       <main class="mdl-layout__content">
         <div class="page-content" style="padding:10px;">
-          <form action="#" id="js-search-form">
+          <div class="mdl-components__warning" id="js-offline-banner"><b> 😵You're offline!</b> You might want to look up data you already checked!</div>
+          <form id="js-search-form">
             <div class="mdl-textfield mdl-js-textfield">
               <input class="mdl-textfield__input" name="search-query" type="text">
               <label class="mdl-textfield__label" for="search-query">Your search...</label>

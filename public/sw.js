@@ -6,6 +6,7 @@ workbox.core.setCacheNameDetails({
 });
 
 workbox.precaching.precacheAndRoute([
+  { url: '/', revision: null },
   { url: '/about-precache', revision: null },
 ]);
 

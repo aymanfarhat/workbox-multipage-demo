@@ -1,3 +1,11 @@
 .demo-card-wide {
   margin-bottom: 40px;
 }
+.mdl-components__warning {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #FFF9C4;
+  padding: 16px;
+  border-radius: 2px;
+  color: #212121;
+}

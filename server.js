@@ -15,12 +15,12 @@ app.get('/', (request, response) => {
 
 app.get('/about-nocache', (request, response) => {
   console.log('ping - no cache');
-  setTimeout(() => response.render('about', {message: 'Slow page'}), 5000);
+  setTimeout(() => response.render('about', {message: 'Slow page 😟'}), 5000);
 });
 
 app.get('/about-precache', (request, response) => {
   console.log('ping - pre cache');
-  setTimeout(() => response.render('about', {message: 'Pretty fast huh? Thats a pre-cached route!'}), 5000);
+  setTimeout(() => response.render('about', {message: 'Pretty fast huh? Thats a pre-cached route!  😎'}), 5000);
 });
 
 app.get('/api/search-videos/:searchQuery', (request, response) => {
