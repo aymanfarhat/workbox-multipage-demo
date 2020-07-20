@@ -34,3 +34,17 @@ workbox.routing.registerRoute(
     ]
   }),
 );
+
+workbox.routing.registerRoute(
+  new RegExp(/\/related-videos\/.*/),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'cache-related-videos',
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24, // cache for one day
+        maxEntries: 20, // only cache 20 request
+        purgeOnQuotaError: true
+      }),
+    ]
+  }),
+);
