@@ -8,6 +8,7 @@ workbox.core.setCacheNameDetails({
 workbox.precaching.precacheAndRoute([
   { url: '/', revision: null },
   { url: '/about-precache', revision: null },
+  { url: '/search.js', revision: null },
 ]);
 
 workbox.routing.registerRoute(

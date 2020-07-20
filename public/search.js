@@ -11,8 +11,6 @@ window.addEventListener('load', function() {
 });
 
 function performSearch(e) {
-  e.preventDefault();
-
   const searchQuery = e.target[0].value;
   const apiPath = `/api/search-videos/${searchQuery}`;
 
@@ -27,8 +25,9 @@ function performSearch(e) {
     })
     .catch((e) => {
       searchResultsContainer.innerHTML = `Error occured while fetching data, you might be offline!`;
-      e.preventDefault();
     });
+
+    e.preventDefault();
 }
 
 function showSearchLoading() {
