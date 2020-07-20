@@ -11,6 +11,12 @@
 
 ### Setup instructions 
 
+Obtain a youtube API key and set the ENV var via
+
+```
+export YT_API_KEY=YOUR-KEY-HERE
+```
+
 ```
 npm install
 ```
