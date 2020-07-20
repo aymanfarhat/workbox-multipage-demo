@@ -13,6 +13,16 @@ app.get('/', (request, response) => {
   response.render('index');
 });
 
+app.get('/about-nocache', (request, response) => {
+  console.log('ping - no cache');
+  setTimeout(() => response.render('about', {message: 'Slow page'}), 5000);
+});
+
+app.get('/about-precache', (request, response) => {
+  console.log('ping - pre cache');
+  setTimeout(() => response.render('about', {message: 'Pretty fast huh? Thats a pre-cached route!'}), 5000);
+});
+
 app.get('/api/search-videos/:searchQuery', (request, response) => {
   const requestUrl = `${apiBase}&q=${request.params.searchQuery}&key=${apiKey}`;
   requestClient(requestUrl, { json: true }, (err, res, data) => {
@@ -28,6 +38,7 @@ app.get('/api/search-videos/:searchQuery', (request, response) => {
 });
 
 app.get('/related-videos/:videoId', (request, response) => {
+  console.log(`${apiBase}&relatedToVideoId=${request.params.videoId}&key=${apiKey}&maxResults=10`);
   requestClient(`${apiBase}&relatedToVideoId=${request.params.videoId}&key=${apiKey}&maxResults=10`, { json: true }, (err, res, data) => {
     const snippets = data.items.map((item) => {
       return item.snippet;

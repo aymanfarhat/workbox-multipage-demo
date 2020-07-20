@@ -5,6 +5,10 @@ workbox.core.setCacheNameDetails({
   prefix: 'DemoApp'
 });
 
+workbox.precaching.precacheAndRoute([
+  { url: '/about-precache', revision: null },
+]);
+
 workbox.routing.registerRoute(
   new RegExp('\.css$'),
   new workbox.strategies.CacheFirst({
